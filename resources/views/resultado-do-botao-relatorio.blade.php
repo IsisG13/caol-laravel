@@ -18,6 +18,7 @@
         }
         .conteudoRelatorio {
             font-weight: bold;
+            font-size: 75%
             display: flex;
             padding: 10px;
             border: 1px solid #ccc;
@@ -29,6 +30,78 @@
 
         .conteudoRelatorio h5 {
             width: 16%;
+        }
+
+        @media(max-width: 960px) {
+            h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 130%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+        .conteudoRelatorio {
+            font-weight: bold;
+            font-size: 75%;
+            display: flex;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .conteudoRelatorio .usuario {
+            width: 23%;
+        }
+
+        .conteudoRelatorio h5 {
+            width: 16%;
+        }
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 130%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+        .conteudoRelatorio {
+            font-weight: bold;
+            display: flex;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .conteudoRelatorio .usuario {
+            width: 23%;
+        }
+
+        .conteudoRelatorio h5 {
+            width: 16%;
+        }
+
+        @media (max-width: 800px) {
+            h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 130%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+        .conteudoRelatorio {
+            font-weight: bold;
+            display: flex;
+            padding: 10px;
+            border: 1px solid #ccc;
+            flex-direction: column;
+        }
+
+        .conteudoRelatorio .usuario {
+            width: 104%;
+        }
+
+        .conteudoRelatorio h5 {
+            width: 104%;
+        }
         }
 
     </style>

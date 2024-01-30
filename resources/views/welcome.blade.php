@@ -42,6 +42,39 @@
                 width: 22%;
                 height: 52px;
             }
+
+            @media (max-width: 800px) {
+                .Caol {
+                text-align: center;
+            }
+
+            .Caol h1 {
+                font-size: 130%;
+                margin-top: 15%;
+                margin-bottom: 4%;
+            }
+
+            .Caol .botoes {
+                width: 198%;
+                margin-left: -50%;
+            }
+
+            .Caol .botoes button {
+                background-color: #bebebe;
+                color: #4e4f50;
+                font-weight: bold;
+                width: 20%; 
+                height: 50px;
+            }
+
+            .Caol .botoes button:hover {
+                background-color: #4e4f50;
+                color: white;
+                font-weight: bold;
+                width: 22%;
+                height: 52px;
+            }
+            }
         </style>
     </head>
     <body class="Caol">

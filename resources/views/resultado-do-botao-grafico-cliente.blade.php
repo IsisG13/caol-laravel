@@ -20,7 +20,7 @@
     </div>
 
     <!-- Gráfico de Pizza -->
-    <div style="width: 50%; margin-top: 5%; margin-left: 25%;">
+    <div style="width: 74%; margin-top: 5%; margin-left: 14%;">
         <canvas id="myPieChart"></canvas>
     </div>
 

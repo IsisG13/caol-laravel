@@ -13,11 +13,11 @@
     </style>
 </head>
 <body>
-    <div style="width: 90%; height: 400px; margin: auto;">
+    <div style="width: 90%; height: 400px; margin: auto; ">
         <canvas id="myBarChart"></canvas>
     </div>
 
-    <div style="width: 50%; margin-top: 5%; margin-left: 25%">
+    <div style="width: 74%; margin-top: 8%; margin-left: 17%">
         <canvas id="myPieChart"></canvas>
     </div>
 
@@ -75,13 +75,13 @@
         // Grafico de pizza
         var ctxPie = document.getElementById('myPieChart').getContext('2d');
 
-        // Dados do gráfico de pizza
-        // Obtendo a referência para o elemento canvas do gráfico de pizza
+        // Dados do gráfico de pizzas
         var dataPie = {
             labels: Object.keys(dataPorMes).map(mes => mes),
             datasets: [{
                 data: Object.keys(dataPorMes).map(mes => dataPorMes[mes][0].receita),
                 backgroundColor: ['MistyRose', 'Honeydew', 'LightCyan', 'PeachPuff', 'Lavender', 'Thistle', 'LemonChiffon', 'Cornsilk', 'PaleTurquoise'],
+                // borderColor: ['gray'];
             }]
         };
 
