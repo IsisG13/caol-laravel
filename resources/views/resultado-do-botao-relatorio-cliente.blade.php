@@ -32,6 +32,21 @@
             width: 16%;
         }
 
+        .champion-true {
+            border-radius: 50%;
+            width: 9%;
+            height: 69px;
+            background-color: #3498db;
+        }
+
+        .champion-true h3 {
+            margin-top: 1%;
+        }
+
+        .champion-false {
+            background-color: transparent;
+        }
+
         @media(max-width: 960px) {
             h1 {
             text-align: center;
@@ -42,7 +57,7 @@
         }
         .conteudoRelatorio {
             font-weight: bold;
-            font-size: 75%
+            font-size: 75%;
             display: flex;
             padding: 10px;
             border: 1px solid #ccc;
@@ -54,6 +69,16 @@
 
         .conteudoRelatorio h5 {
             width: 16%;
+        }
+
+        .champion-true {
+            border-radius: 50%;
+            width: 9%;
+            height: 69px;
+            background-color: #3498db;
+        }
+        .champion-false {
+            background-color: transparent;
         }
         }
       
@@ -82,27 +107,56 @@
         .conteudoRelatorio h5 {
             width: 104%;
         }
+
+        .champion-true {
+            border-radius: 50%;
+            margin-left: 4%;
+            margin-top: -13%;
+            width: 22%;
+            height: 69px;
+            background-color: #3498db;
+        }
+
+        .champion-false {
+            background-color: transparent;
+        }
         }
     </style>
+    
 </head>
 <body>
     <h1>Relatorio cliente</h1>
     @foreach($resultados as $resultado)
-    @if(!empty($resultado->no_contato) && !empty($resultado->mes_referencia) && !empty($resultado->receita))
-        <div class="conteudoRelatorio">
-                <p><h4>Nome de contato: <br/>
-                    {{$resultado->no_contato}}</h4></p>
+        @empty($resultado->no_contato) 
+            @continue 
+        @endempty
 
-                <p><h5> Número de telefone: <br/>
-                    {{ $resultado->nu_telefone }}</h5></p>
+    <div class="conteudoRelatorio @if($resultado->is_champion == 1) bg-blue-200 @else bg-transparent @endif">
+        <h4>Nome de Contato: <br/> 
+            {{ $resultado->no_contato }}
+        </h4>
 
-                <p><h4>Mês de emissão: <br/>
-                    {{ $resultado->mes_referencia }}</h4></p>
+        <h5>Número de Telefone: <br/> 
+            {{ $resultado->nu_telefone }}
+        </h5>
 
-                <p><h5>Receita: <br/>
-                    {{ $resultado->receita }}</h5></p>
-        </div>
-    @endif
+        <h4>Mês de Emissão: <br/> 
+            {{ $resultado->mes_referencia }}
+        </h4>
+
+        <h5>Receita: <br/> 
+            {{ $resultado->receita }}
+        </h5>
+
+        <h5 class="campeao">
+            <span class="champion-badge @if($resultado->is_champion == 1) champion-true @else champion-false @endif"></span>
+            @if($resultado->is_champion == 1)
+                <h3 class="champion-true"></h3>
+            @else
+                <h3 class="champion-false"></h3>
+            @endif
+        </h5>
+    </div>
 @endforeach
 </body>
 </html>

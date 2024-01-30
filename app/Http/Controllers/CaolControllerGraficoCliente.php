@@ -14,7 +14,7 @@ class CaolControllerGraficoCliente extends Controller
         cao_cliente.co_cliente ,
         cao_cliente.no_contato,
         cao_cliente.nu_telefone,
-        DATE_FORMAT(cao_fatura.data_emissao, 'Mês %m') AS mes_referencia,
+        DATE_FORMAT(cao_fatura.data_emissao, '%Y-%m') AS mes_referencia,
         ROUND(SUM(cao_fatura.valor - cao_fatura.total_imp_inc), 3) AS receita
     FROM 
         cao_cliente
