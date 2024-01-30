@@ -9,15 +9,16 @@ class CaolController extends Controller
 {
     public function exibirResultados()
     {
-        $resultados = DB::select("SELECT  
+        $resultados = DB::select
+        ("SELECT  
         cao_usuario.*,
         permissao_sistema.co_sistema,
         permissao_sistema.in_ativo,
         permissao_sistema.co_tipo_usuario,
-        SUM(cao_fatura.valor - cao_fatura.total_imp_inc * cao_fatura.valor) AS receita_liquida,
+        ROUND(SUM(cao_fatura.valor - cao_fatura.total_imp_inc * cao_fatura.valor), 3) AS receita_liquida,
         cao_salario.brut_salario AS custo_fixo,
-        SUM((cao_fatura.valor - cao_fatura.total_imp_inc * cao_fatura.valor) * cao_fatura.comissao_cn / 100) AS comissao,
-        (SUM(cao_fatura.valor - cao_fatura.total_imp_inc * cao_fatura.valor) - cao_salario.brut_salario - SUM((cao_fatura.valor - cao_fatura.total_imp_inc * cao_fatura.valor) * cao_fatura.comissao_cn / 100)) AS lucro
+        ROUND(SUM((cao_fatura.valor - cao_fatura.total_imp_inc * cao_fatura.valor) * cao_fatura.comissao_cn / 100), 3) AS comissao,
+        ROUND(SUM(cao_fatura.valor - cao_fatura.total_imp_inc * cao_fatura.valor) - cao_salario.brut_salario - SUM((cao_fatura.valor - cao_fatura.total_imp_inc * cao_fatura.valor) * cao_fatura.comissao_cn / 100), 3) AS lucro
     FROM 
         cao_usuario
     INNER JOIN 
