@@ -31,7 +31,7 @@
 
     <script>
         var resultados = {!! json_encode($resultados) !!};
-        
+
         var dataPorMes = {};
         resultados.forEach(consultor => {
             var mes = consultor.mes_referencia;
@@ -43,9 +43,9 @@
                 receita: consultor.receita_liquida
             });
         });
-    
+
         var ctxBar = document.getElementById('myBarChart').getContext('2d');
-    
+
         // Dados do gráfico de barras
         var datasetsBar = Object.keys(dataPorMes).map((mes, index) => ({
             label: mes,
@@ -53,12 +53,17 @@
             backgroundColor: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.5)`,
             borderWidth: 1
         }));
-    
+
+        // Obter os primeiros 5 consultores
+        var topConsultores = Object.keys(dataPorMes[Object.keys(dataPorMes)[0]])
+            .slice(0, 5)
+            .map(index => dataPorMes[Object.keys(dataPorMes)[0]][index].consultor);
+
         var dataBar = {
-            labels: Object.keys(dataPorMes).map(mes => dataPorMes[mes][0].consultor),
+            labels: topConsultores,
             datasets: datasetsBar
         };
-    
+
         var optionsBar = {
             responsive: true,
             maintainAspectRatio: false,
@@ -72,17 +77,17 @@
                 }
             }
         };
-    
+
         var myBarChart = new Chart(ctxBar, {
             type: 'bar',
             data: dataBar,
             options: optionsBar
         });
-    
-    
+
+
         // Gráfico de pizza
         var ctxPie = document.getElementById('myPieChart').getContext('2d');
-    
+
         // Dados do gráfico de pizza
         var dataPie = {
             labels: Object.keys(dataPorMes).map(mes => mes),
@@ -95,7 +100,7 @@
                 backgroundColor: ['MistyRose', 'Honeydew', 'LightCyan', 'PeachPuff', 'Lavender', 'Thistle', 'LemonChiffon', 'Cornsilk', 'PaleTurquoise'],
             }]
         };
-    
+
         // Configurações do gráfico de pizza
         var optionsPie = {
             responsive: true,
@@ -112,7 +117,7 @@
                 }
             }
         };
-    
+
         // Criando o gráfico de pizza
         var myPieChart = new Chart(ctxPie, {
             type: 'pie',

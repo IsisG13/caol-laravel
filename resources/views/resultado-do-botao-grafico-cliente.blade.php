@@ -32,7 +32,6 @@
     </div>
 
     <script>
-
         var resultados = {!! json_encode($resultados) !!};
         
         // Organizando os dados por mês e consultor
